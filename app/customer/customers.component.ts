@@ -16,6 +16,10 @@ export class CustomersComponent implements OnInit {
     constructor(private _customerService: CustomerService) { }
 
     ngOnInit() {
-        this.customers = this._customerService.getCustomers();
+        this.customers = this._customerService.getCustomers()
+            .catch((err) => {
+                console.log(err); // show error details
+                return Observable.of(true); // eat it, only if message was communicated to user
+             });
      }
 }
