@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { CustomerComponent } from './customer/customer.component';
+import { CustomersComponent } from './customer/customers.component';
 
 @Component({
+    moduleId: module.id,
     selector: 'my-app',
-    templateUrl: 'app/app.component.html',
-    directives: [CustomerComponent]
+    templateUrl: 'app.component.html',
+    directives: [CustomersComponent]
 })
 export class AppComponent {
     //[ ] means property binding - one way (component to DOM)
@@ -12,14 +13,7 @@ export class AppComponent {
 
     title = 'Customer App';
     name = 'Ramon';
-    ramonsColor = 'red';
-    customers = [
-        {id: 1, name: 'Ramon'},
-        {id: 2, name: 'Kevin'},
-        {id: 3, name: 'Sanjay'},
-        {id: 4, name: 'Paul'},
-        {id: 5, name: 'Esmeralda'}
-    ];
+    ramonsColor = 'red';    
 
     changeButton() {
         this.ramonsColor = this.ramonsColor === 'green' ? 'red' : 'green';
