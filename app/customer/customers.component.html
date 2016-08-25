@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let currentCustomer of customers">
+  <li *ngFor="let currentCustomer of customers | async">
     <app-customer [customer]="currentCustomer"></app-customer>
   </li>
 </ul>
