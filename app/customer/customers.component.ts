@@ -11,15 +11,32 @@ import { CustomerService } from './customer.service';
     providers: [CustomerService]
 })
 export class CustomersComponent implements OnInit {
-    customers: Observable<any[]>;
+    //customers: Observable<any[]>;
+    //customers: Promise<any[]>;
+    customers: any[];
 
     constructor(private _customerService: CustomerService) { }
 
     ngOnInit() {
-        this.customers = this._customerService.getCustomers()
+        this._customerService.getCustomers()
+            .then((customers) => this.customers = customers)
             .catch((err) => {
                 console.log(err); // show error details
                 return Observable.of(true); // eat it, only if message was communicated to user
              });
+
+        //Promise<any[]> version
+        /*this.customers = this._customerService.getCustomers()
+            .catch((err) => {
+                console.log(err); // show error details
+                return Observable.of(true); // eat it, only if message was communicated to user
+             });*/
+
+        //Observable<any[]> version
+        /*this.customers = this._customerService.getCustomers()
+            .catch((err) => {
+                console.log(err); // show error details
+                return Observable.of(true); // eat it, only if message was communicated to user
+             });*/
      }
 }

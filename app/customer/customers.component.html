@@ -1,5 +1,6 @@
 <ul>
-  <li *ngFor="let currentCustomer of customers | async">
+  <!-- <li *ngFor="let currentCustomer of customers | async"> Promise/Observable version -->
+  <li *ngFor="let currentCustomer of customers">
     <app-customer [customer]="currentCustomer"></app-customer>
   </li>
 </ul>

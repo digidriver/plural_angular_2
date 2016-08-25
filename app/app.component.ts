@@ -15,7 +15,7 @@ export class AppComponent {
 
     title = 'Customer App';
     name = 'Ramon';
-    ramonsColor = 'red';    
+    ramonsColor = 'green';    
 
     changeButton() {
         this.ramonsColor = this.ramonsColor === 'green' ? 'red' : 'green';
